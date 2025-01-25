@@ -1,0 +1,19 @@
+pandas
+numpy
+xgboost
+catboost
+scikit-learn
+matplotlib
+scipy
+seaborn
+pyspark
+torch
+keras
+tensorflow
+Flask
+PIL
+
+
+
+# connection for the setup.py
+# -e .

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection Results</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --color-bg: #f0f4f8;
+            --color-text: #2c3e50;
+            --color-primary: #3498db;
+            --color-secondary: #2ecc71;
+            --color-warning: #f39c12;
+            --color-danger: #e74c3c;
+            --color-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        .container {
+            background-color: var(--color-white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--color-primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .result[data-tumor="glioma_tumor"] {
+            background-color: var(--color-danger);
+            color: var(--color-white);
+        }
+
+        .result[data-tumor="meningioma_tumor"] {
+            background-color: var(--color-warning);
+            color: var(--color-text);
+        }
+
+        .result[data-tumor="no_tumor"] {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+        }
+
+        .result[data-tumor="pituitary_tumor"] {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .detail-item {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-item strong {
+            color: var(--color-primary);
+        }
+
+        .confidence-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .confidence-level {
+            height: 100%;
+            background-color: var(--color-primary);
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .primary-action {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .primary-action:hover {
+            background-color: #2980b9;
+        }
+
+        .secondary-action {
+            background-color: #ecf0f1;
+            color: var(--color-text);
+        }
+
+        .secondary-action:hover {
+            background-color: #bdc3c7;
+        }
+
+        .confidence-bar {
+            width: 100%;
+            /* Full width of the container */
+            height: 20px;
+            /* Set the height of the bar */
+            background-color: #e5e7eb;
+            /* Light gray for the background */
+            border-radius: 10px;
+            /* Rounded corners */
+            overflow: hidden;
+            /* To keep the inner bar within bounds */
+            position: relative;
+            /* For positioning the inner bar */
+        }
+
+        .confidence-level {
+            height: 100%;
+            /* Match the height of the bar */
+            background: linear-gradient(to right, #4ade80, #16a34a);
+            /* Gradient for a vibrant look */
+            border-radius: 10px 0 0 10px;
+            /* Rounded corners on the left */
+            transition: width 0.3s ease-in-out;
+            /* Smooth animation when the bar fills */
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .result {
+                font-size: 20px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Brain Tumor Detection Results</h1>
+        <div class="result" data-tumor="{{ data }}">
+            <div class="icon">
+                {% if data == "no_tumor" %}
+                ✅
+                {% else %}
+                ⚠️
+                {% endif %}
+            </div>
+            {% if data == "no_tumor" %}
+            No Tumor Detected
+            {% elif data == "glioma_tumor" %}
+            Glioma Tumor Detected
+            {% elif data == "meningioma_tumor" %}
+            Meningioma Tumor Detected
+            {% elif data == "pituitary_tumor" %}
+            Pituitary Tumor Detected
+            {% endif %}
+        </div>
+        <div class="details">
+            <div class="detail-item">
+                <strong>Patient ID:</strong> <span>BT-{{ patient_id }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Scan Date:</strong> <span>{{ scan_date }}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Confidence:</strong> <span>{{ '%.2f' | format(confidence * 100) }}%</span>
+                <div class="confidence-bar">
+                    <div class="confidence-level" style="width: {{ confidence * 100 }}%;"></div>
+                </div>
+            </div>
+            <div class="detail-item">
+                <strong>Recommended Action:</strong>
+                <span>
+                    {% if data == "no_tumor" %}
+                    Regular check-up in 12 months
+                    {% elif data == "glioma_tumor" %}
+                    Immediate consultation with neuro-oncologist
+                    {% elif data == "meningioma_tumor" %}
+                    Schedule follow-up MRI in 3 months
+                    {% elif data == "pituitary_tumor" %}
+                    Endocrinology consultation recommended
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="action-button primary-action">Send to Specialist</button>
+            <button class="action-button secondary-action">Print Report</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Singh's Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .bg-gradient {
+            background: linear-gradient(to bottom right, #5B21B6, #1F2937, #000);
+        }
+
+        .bg-gradient-text {
+            background: linear-gradient(to right, #A855F7, #D946EF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blur-3xl {
+            filter: blur(60px);
+        }
+
+        .circle-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+
+        .image-container:hover .circle-img {
+            transform: scale(1.1);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.2);
+            color: #A855F7;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #A855F7;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation:
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #A855F7;
+            }
+        }
+
+        .super-power {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            transition: all 0.3s ease;
+        }
+
+        .super-power:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(167, 119, 227, 0.4);
+        }
+
+        .code-block {
+            background-color: #1E1E1E;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .code-block code {
+            color: #D4D4D4;
+        }
+
+        .comment {
+            color: #6A9955;
+        }
+
+        .keyword {
+            color: #569CD6;
+        }
+
+        .string {
+            color: #CE9178;
+        }
+
+        .function {
+            color: #DCDCAA;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient text-white flex flex-col items-center justify-center overflow-x-hidden">
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="p-6 fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-80">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h2 class="text-2xl font-bold bg-gradient-text">Abhishek Singh</h2>
+            <div class="space-x-6">
+                <a href="#about" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-purple-400 transition-colors">Power</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="about" class="flex items-center justify-center w-full max-w-6xl px-6 py-20 mt-16">
+        <div class="flex flex-col md:flex-row items-center justify-center">
+            <!-- Text Content -->
+            <div class="max-w-xl mb-10 md:mb-0 text-center md:text-left">
+                <h1 class="text-5xl font-bold mb-6">
+                    Hi! 👋
+                    <br />
+                    I'm <span class="bg-gradient-text">Abhishek Singh</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 typewriter">
+                    Data Science Enthusiast & AI Innovator
+                </p>
+                <p class="text-lg text-gray-400 mb-8">
+                    Skilled in Machine Learning, Deep Learning, and Natural Language Processing.
+                    Passionate about solving real-world challenges, I focus on extracting meaningful insights from data,
+                    building intelligent systems, and applying advanced techniques to create impactful, innovative
+                    solutions.
+                </p>
+                <div class="space-x-4 flex justify-center md:justify-start">
+                    <a href="project.html">
+                        <button
+                            class="px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-500 transition-colors transform hover:scale-105">
+                            <i class="fas fa-project-diagram mr-2"></i>View My Work
+                        </button>
+                    </a>
+                    <button
+                        class="px-6 py-3 border border-purple-400 rounded-lg hover:bg-purple-900/50 transition-colors"
+                        onclick="toggleContactModal()">Get in Touch</button>
+                    <!-- <a href="../static/images/Abhishek_singh_resume.pdf" target="_blank"
+                        class="hover:text-purple-400 transition-colors">
+                        <button
+                            class="px-6 py-3 border border-purple-400 rounded-lg hover:bg-purple-900/50 transition-colors">My
+                            resume</button>
+                    </a> -->
+
+                </div>
+            </div>
+            <!-- Image Content -->
+            <div class="relative ml-0 md:ml-10 mt-10 md:mt-0">
+                <!-- Gradient Blur Background -->
+                <div
+                    class="w-80 h-80 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 absolute blur-3xl opacity-25 animate-pulse">
+                </div>
+                <div id="imageContainer"
+                    class="w-80 h-80 rounded-full bg-gray-900 relative overflow-hidden border-4 border-purple-400 flex justify-center items-center image-container hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
+                    <img id="defaultImage" src="../static/images/profilepic.JPG" alt="Profile" class="circle-img" />
+                    <img id="hoverImage" src="../static/images/ironman.png" alt="Profile"
+                        class="circle-img absolute inset-0 opacity-0" />
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="contactModal" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 hidden">
+        <div class="bg-gray-900 p-8 rounded-xl max-w-md w-full relative">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white"
+                onclick="toggleContactModal()">✕</button>
+            <h2 class="text-2xl font-bold mb-6">Let's Connect</h2>
+            <div class="space-y-4">
+                <a href="mailto:a.singh.gla@gmail.com"
+                    class="flex items-center space-x-3 text-gray-300 hover:text-purple-400">
+                    📧
+                    <span>a.singh.gla@gmail.com</span>
+                </a>
+                <a href="tel:9997700***" class="flex items-center space-x-3 text-gray-300 hover:text-purple-400">
+                    📞
+                    <span>+91 9997700***</span>
+                </a>
+                <div class="flex space-x-4 mt-6">
+                    <a href="https://github.com/Dnat007"
+                        class="p-2 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors">GitHub</a>
+                    <a href="https://www.linkedin.com/in/abhisheksinghgla/"
+                        class="p-2 bg-gray-800 rounded-full hover:bg-purple-600 transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="w-full py-20 bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-10 text-center bg-gradient-text inline-block">My Superpowers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Machine Learning</h3>
+                    <p class="mb-4">Crafting intelligent algorithms that learn and adapt</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">def</span> <span class="function">train_model</span>(X, y):
+    <span class="comment"># Implement ML algorithm</span>
+    <span class="keyword">return</span> trained_model</code></pre>
+                    </div>
+                </div>
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Deep Learning</h3>
+                    <p class="mb-4">Unlocking the potential of neural networks</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">import</span> tensorflow as tf
+
+                            model = tf.keras.Sequential([
+                                tf.keras.layers.Dense(64, activation=<span class="string">'relu'</span>),
+                                tf.keras.layers.Dense(10, activation=<span class="string">'softmax'</span>)
+                            ])</code></pre>
+                    </div>
+                </div>
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">NLP</h3>
+                    <p class="mb-4">Decoding language to bridge human-computer interaction</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">from</span> transformers <span class="keyword">import</span> pipeline
+
+                            nlp = pipeline(<span class="string">"sentiment-analysis"</span>)
+                            result = nlp(<span class="string">"I love AI!"</span>)</code></pre>
+                    </div>
+                </div>
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Data Analysis</h3>
+                    <p class="mb-4">Transforming raw data into actionable insights</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">import</span> pandas as pd
+
+                            df = pd.read_csv(<span class="string">"data.csv"</span>)
+                            insights = df.describe()</code></pre>
+                    </div>
+                </div>
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Innovation</h3>
+                    <p class="mb-4">Pushing boundaries to create cutting-edge solutions</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">class</span> <span class="function">InnovativeSolution</span>:
+    <span class="keyword">def</span> <span class="function">solve_problem</span>(self, problem):
+        <span class="comment"># Implement groundbreaking solution</span>
+        <span class="keyword">return</span> innovative_result</code></pre>
+                    </div>
+                </div>
+                <div class="super-power p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Problem Solving</h3>
+                    <p class="mb-4">Tackling complex challenges with creative approaches</p>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">def</span> <span class="function">solve_complex_problem</span>(problem):
+                            solution = analyze(problem)
+                            <span class="keyword">while</span> not is_solved(problem):
+                                solution = improve(solution)
+                            <span class="keyword">return</span> solution</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section Placeholder -->
+    <!-- <section id="projects" class="w-full py-20 bg-gray-900 bg-opacity-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-10 text-center bg-gradient-text inline-block">My Projects</h2>
+            <!-- Add your projects here -->
+    <!-- <p class="text-center text-gray-400">Coming soon...</p>
+        </div>
+    </section> --> -->
+
+    <script>
+        const imageContainer = document.getElementById('imageContainer');
+        const defaultImage = document.getElementById('defaultImage');
+        const hoverImage = document.getElementById('hoverImage');
+
+        imageContainer.addEventListener('mouseenter', () => {
+            defaultImage.style.opacity = '0';
+            hoverImage.style.opacity = '1';
+        });
+
+        imageContainer.addEventListener('mouseleave', () => {
+            defaultImage.style.opacity = '1';
+            hoverImage.style.opacity = '0';
+        });
+
+        // Particle animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const size = Math.random() * 5 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            const x = Math.random() * window.innerWidth;
+            particle.style.left = `${x}px`;
+
+            const hue = Math.random() * 360;
+            particle.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+
+            const duration = Math.random() * 2 + 3;
+            particle.style.animation = `float-up ${duration}s linear infinite`;
+
+            document.getElementById('particles').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createParticle, 100);
+    </script>
+</body>
+
+</html>

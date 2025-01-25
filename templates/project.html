@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Singh - Data Science & AI Innovator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #f5f5f5;
+            --accent-color: #ff4081;
+            --text-color: #333;
+            --gradient-1: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            --gradient-2: linear-gradient(135deg, #ff4081 0%, #f50057 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient-1);
+            color: var(--secondary-color);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-text {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background: #f50057;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--accent-color);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .skills-section {
+            background: var(--gradient-2);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            padding: 2rem;
+        }
+
+        .testimonial-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-color);
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-image {
+                margin-top: 2rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --secondary-color: #121212;
+                --text-color: #e0e0e0;
+            }
+
+            .project-card,
+            .testimonial-content {
+                background: #1e1e1e;
+            }
+
+            .tech-tag {
+                background: #333;
+                color: #fff;
+            }
+
+            .testimonials {
+                background: #1a1a1a;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-indicator" id="scroll-indicator"></div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text animate-fadeInUp">
+                    <h1>Abhishek Singh</h1>
+                    <p class="header-subtitle">Data Science Virtuoso | AI Innovator | Tech Visionary</p>
+                    <a href="{{ url_for('home') }}" class="cta-button">Home page</a>
+
+                </div>
+                <div class="header-image animate-fadeInUp delay-2">
+                    <img src="../static/images/profilepic.JPG" alt="Abhishek Singh" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects container">
+            <article class="project-card animate-fadeInUp delay-1">
+                <div class="project-image">
+                    <img src="/static/images/pysaprk.jpeg" alt="PySpark Learning" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Enterprise-Scale Data Processing</h2>
+                    <p class="project-description">Architected a distributed data processing pipeline using PySpark,
+                        handling petabytes of data for Fortune 500 companies.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PySpark</span>
+                        <span class="tech-tag">Hadoop</span>
+                        <span class="tech-tag">Airflow</span>
+                    </div>
+                    <a href="/secondpage.html" class="project-link">View Case Study</a>
+                </div>
+            </article>
+
+            <article class="project-card animate-fadeInUp delay-2">
+                <div class="project-image">
+                    <img src="/static/images/NLP.jpg" alt="Natural Language Processing" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Multilingual NLP Platform</h2>
+                    <p class="project-description">Developed a state-of-the-art NLP platform supporting 50+ languages,
+                        powering chatbots and sentiment analysis for global brands.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">PyTorch</span>
+                    </div>
+                    <a href="#" class="project-link">Explore Project</a>
+                </div>
+            </article>
+
+            <article class="project-card animate-fadeInUp delay-3">
+                <div class="project-image">
+                    <img src="/static/images/mlops.png" alt="Machine Learning with MLOps" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">MLOps at Scale</h2>
+                    <p class="project-description">Implemented end-to-end MLOps pipeline for a leading tech company,
+                        reducing model deployment time by 70% and improving model performance by 25%.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">TensorFlow Extended</span>
+                        <span class="tech-tag">GitOps</span>
+                    </div>
+                    <a href="form.html" class="project-link">Read White Paper</a>
+                </div>
+            </article>
+
+            <article class="project-card animate-fadeInUp delay-4">
+                <div class="project-image">
+                    <img src="/static/images/powerbi.jpg" alt="Power BI" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Executive Analytics Dashboard</h2>
+                    <p class="project-description">Designed and implemented a real-time analytics dashboard for C-level
+                        executives, integrating multiple data sources and predictive models.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Azure Synapse</span>
+                        <span class="tech-tag">DAX</span>
+                    </div>
+                    <a href="#" class="project-link">View Demo</a>
+                </div>
+            </article>
+
+            <article class="project-card animate-fadeInUp delay-5">
+                <div class="project-image">
+                    <img src="/static/images/deeplearning.jpg" alt="Deep Learning" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">AI-Powered Medical Imaging</h2>
+                    <p class="project-description">Led a team in developing an AI system for early cancer detection,
+                        achieving 98% accuracy and FDA approval for clinical use.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Transfer Learning</span>
+                        <span class="tech-tag">DICOM</span>
+                    </div>
+                    <a href="#" class="project-link">Read Publication</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="skills-section">
+            <div class="container">
+                <h2>Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
+                        <h3>Deep Learning</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Data Visualization</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>Big Data</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>Cloud Computing</h3>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Natural Language Processing</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What People Say</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p>"Abhishek's expertise in AI and data science has been instrumental in transforming our
+                                business processes. His innovative solutions have given us a competitive edge in the
+                                market."</p>
+                            <div class="testimonial-author">
+                                <img src="https://placekitten.com/50/50" alt="John Doe" class="testimonial-avatar">
+                                <div>
+                                    <h4>John Doe</h4>
+                                    <p>CEO, Tech Innovations Inc.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p>"Working with Abhishek on our NLP project was an enlightening experience. His deep
+                                understanding of language models and ability to implement cutting-edge techniques is
+                                truly remarkable."</p>
+                            <div class="testimonial-author">
+                                <img src="https://placekitten.com/51/51" alt="Jane Smith" class="testimonial-avatar">
+                                <div>
+                                    <h4>Jane Smith</h4>
+                                    <p>Lead Data Scientist, AI Solutions Ltd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Abhishek Singh. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            const animatedElements = document.querySelectorAll('.animate-fadeInUp');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+
+            window.addEventListener('scroll', () => {
+                const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                scrollIndicator.style.width = `${scrollPercentage}%`;
+            });
+
+            window.addEventListener('scroll', () => {
+                const projectImages = document.querySelectorAll('.project-image img');
+                projectImages.forEach(img => {
+                    const speed = 0.5;
+                    const rect = img.getBoundingClientRect();
+                    const scrollPercentage = Math.min(Math.max((window.innerHeight - rect.top) / window.innerHeight, 0), 1);
+                    const yPos = scrollPercentage * speed * 50;
+                    img.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+
+            const testimonialSlider = document.querySelector('.testimonial-slider');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            testimonialSlider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - testimonialSlider.offsetLeft;
+                scrollLeft = testimonialSlider.scrollLeft;
+            });
+
+            testimonialSlider.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            testimonialSlider.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            testimonialSlider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - testimonialSlider.offsetLeft;
+                const walk = (x - startX) * 3;
+                testimonialSlider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
