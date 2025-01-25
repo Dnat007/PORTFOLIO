@@ -12,7 +12,7 @@ keras
 tensorflow
 Flask
 Pillow
-
+dill
 
 
 # connection for the setup.py
