@@ -18,7 +18,7 @@ model_state_brain.classifier[1] = nn.Linear(
 model_state_brain = model_state_brain.to(device)
 
 # Load the trained model weights
-model_path = "models\\brain_tumor_classifier_.pth"
+model_path = r"models\\brain_tumor_classifier_.pth"
 model_state_brain.load_state_dict(torch.load(model_path, map_location=device))
 model_state_brain.eval()  # Set the model to evaluation mode
 
